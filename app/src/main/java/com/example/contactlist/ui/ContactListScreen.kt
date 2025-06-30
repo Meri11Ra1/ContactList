@@ -13,13 +13,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
 import com.example.contactlist.Contact
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ContactListScreen(navController: NavController, contacts: List<Contact>) {
+fun ContactListScreen(contacts: List<Contact>) {
     Scaffold(
         topBar = {
             TopAppBar(title = { Text("友人リスト") })
@@ -27,21 +26,17 @@ fun ContactListScreen(navController: NavController, contacts: List<Contact>) {
     ) { paddingValues ->
         LazyColumn(modifier = Modifier.padding(paddingValues)) {
             items(contacts) { contact ->
-                ContactListItem(contact = contact) {
-                    // リスト項目がタップされたら、IDを渡して詳細画面へ遷移
-                    navController.navigate("contact_detail/${contact.id}")
-                }
+                ContactListItem(contact = contact)
             }
         }
     }
 }
 
 @Composable
-fun ContactListItem(contact: Contact, onClick: () -> Unit) {
+fun ContactListItem(contact: Contact) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .clickable(onClick = onClick) // タップ可能にする
             .padding(16.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
