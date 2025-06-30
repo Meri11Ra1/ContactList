@@ -15,6 +15,8 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
 import com.example.contactlist.Contact
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Star
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -52,6 +54,14 @@ fun ContactListItem(contact: Contact) {
         Column {
             Text(text = contact.name, style = MaterialTheme.typography.bodyLarge)
             Text(text = contact.phoneNumber, style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
+        }
+        // ↓ この部分をまるごと追加
+        if (contact.isFavorite) {
+            Icon(
+                imageVector = Icons.Filled.Star,
+                contentDescription = "お気に入り",
+                tint = MaterialTheme.colorScheme.primary
+            )
         }
     }
 }
