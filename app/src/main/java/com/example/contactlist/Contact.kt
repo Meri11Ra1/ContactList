@@ -4,5 +4,6 @@ data class Contact(
     val id: Int,
     val name: String,
     val phoneNumber: String,
-    val iconUrl: String // アイコン画像のURLを保持
+    val iconUrl: String,
+    val isFavorite: Boolean = false // ← この行を追加
 )
