@@ -51,6 +51,7 @@ fun ContactListItem(contact: Contact) {
         Spacer(modifier = Modifier.width(16.dp))
         Column {
             Text(text = contact.name, style = MaterialTheme.typography.bodyLarge)
+            Text(text = contact.age + "歳")
             Text(text = contact.phoneNumber, style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
         }
     }
