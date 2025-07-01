@@ -30,4 +30,6 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun ContactApp() {
     ContactListScreen(contacts = sampleContacts)
+
+    // test
 }
