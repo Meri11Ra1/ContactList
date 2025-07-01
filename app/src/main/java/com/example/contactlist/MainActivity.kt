@@ -32,4 +32,5 @@ fun ContactApp() {
     ContactListScreen(contacts = sampleContacts)
 
     // test
+    // これが見えたらmainブランチは最新です（7/1のみやそうより）
 }
